@@ -1,4 +1,7 @@
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+    console.log('Este es el entorno', process.env.NODE_ENV);
+}
 const express = require('express');
 const morgan = require('morgan'); //Para mostrarnos por consola las peticiones al servidor
 const multer = require('multer'); //Nos ayuda a procesar imagenes
@@ -8,7 +11,7 @@ const app = express();
 require('./database');
 
 //Settings
-app.set('port',3000);
+app.set('port',process.env.PORT || 3000);
 
 //Middlewares
 app.use(morgan('dev'));
