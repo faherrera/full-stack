@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FullStack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+    
+</head>
+<body>
+    <main>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+                <a href="#!" class="navbar-brand">Books App</a>
+            </div>
+        </nav>
+
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <form action="" class="card card-body" id="book-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Titulo" name="title" id="title">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Author" name="author" id="author">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Isbn" name="isbn" id="isbn">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="file" name="image" id="image" class="custom-file-input">
+                            <label for="image" class="custom-file-label">Choose Image</label>
+                        </div>
+                        <button class="btn btn-primary">
+                            Save Book
+                        </button>
+                    </form>
+                </div>
+                <div class="col-md-8" id="books-cards">
+                    Books
+                </div>
+            </div>
+        </div>
+    </main>    
+</body>
+</html>
