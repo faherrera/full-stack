@@ -1,6 +1,5 @@
 import BookService from './services/BookService';
 import { format } from 'timeago.js';
-import { apiURL } from './utils/requestConfig';
 const _bookService = new BookService();
 const noImage  = "https://www.unesale.com/ProductImages/Large/notfound.png";
 class UI{
@@ -11,7 +10,7 @@ class UI{
         $booksCardContainer.innerHTML = '';
 
         data.books.forEach(book => {
-            book.imagePath = book.imagePath  ? apiURL + book.imagePath : noImage ;
+            book.imagePath = book.imagePath  ? book.imagePath : noImage ;
             let $divCard = document.createElement('div');
             $divCard.className = '';
             $divCard.innerHTML = `

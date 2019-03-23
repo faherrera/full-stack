@@ -1,8 +1,6 @@
-import { apiURL } from './../utils/requestConfig';
-
 class BookService {
     constructor(){
-        this.URI = apiURL + "/api/books";
+        this.URI = "/api/books";
     }
 
     async getBooks(){
