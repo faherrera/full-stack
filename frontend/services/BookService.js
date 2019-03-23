@@ -28,7 +28,8 @@ class BookService {
             method:'DELETE',
         });
     
-        const data = resp.json();
+        const data = await resp.json();
+        console.log(data);
         return data;
 
     }

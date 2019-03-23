@@ -24,7 +24,7 @@ class UI{
                             <div class="card-block px-2">
                                 <h4 class="card-title"> ${book.title}</h4>
                                 <p class="card-text"> ${book.author}</p>
-                                <a href="#" class="btn btn-danger delete" id="${book._id}"> X </a>
+                                <a class="btn btn-danger delete" _id="${book._id}"> X </a>
                             </div>
                         </div>
                     </div>
@@ -47,9 +47,28 @@ class UI{
         document.getElementById('book-form').reset();
     };
 
-    renderMessage(){};
+    renderMessage(message, colorMessage, time = 2){
+       const div = document.createElement('div'); 
+       const container = document.getElementById('form-container');
+       const bookForm = document.getElementById('book-form');
+       
+       div.innerText = message;
+       div.className = `alert alert-${colorMessage} message`;
 
-    deleteBook(){};
+
+       container.insertBefore(div, bookForm);
+
+       setTimeout( () => {
+           document.querySelector('.message').remove();
+       }, time * 1000);
+
+    };
+
+    async deleteBook(bookId){
+        let deletedBook = await _bookService.deleteBook(bookId);
+        this.renderMessage(deletedBook.message || "Libro borrau", 'danger', 2);
+        this.renderBooks();
+    };
 }
 
 export default UI;

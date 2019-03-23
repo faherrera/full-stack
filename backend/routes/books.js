@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const router = Router();
 const Book = require('../models/book');
+const {unlink} = require('fs-extra'); //fs-extra Encargado de los archivos y unlink elimina el archivo.
+const path = require('path');
 
 router.get('/', async (req, res) => {
     try {
@@ -49,6 +51,7 @@ router.delete('/:id', async (req,res) => {
     const ID = req.params.id;
     try {
         const book = await Book.findByIdAndDelete(ID);
+        unlink(path.resolve('./backend/public' + book.imagePath)); 
         res.status(200)
         .send({
             message:"Eliminado correctamente",
