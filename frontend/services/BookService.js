@@ -1,6 +1,8 @@
+import { apiURL } from './../utils/requestConfig';
+
 class BookService {
     constructor(){
-        this.URI = "http://localhost:3000/api/books";
+        this.URI = apiURL + "/api/books";
     }
 
     async getBooks(){
